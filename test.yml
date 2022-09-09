@@ -1,7 +1,6 @@
 ---
 - hosts: all
   tasks:
-  - name: Creating an empty file
-    file:
-      path: "/home/ansibleadmin/file1.txt"
-      state: touch
+    - name: Print message
+      debug:
+        msg: Hello Ansible World
