@@ -1,11 +1,11 @@
 ---
  - hosts: all
    tasks:
-     - name: Fetch the file from the Jenkins Master to master
+     - name: Fetch the file from the Jenkins Master to AnsibleN1
        run_once: yes
-       fetch: src=/home/ec2-user/mvn-hello-world.war dest=buffer/ flat=yes
+       fetch: src=/home/ec2-user/mvn-hello-world.war dest=/home/ec2-user/ flat=yes
        when: inventory_hostname == 'Jenkins Master' 
 
-     - name: Copy the file from master to Appserver
-       copy: src=buffer/mvn-hello-world.war dest=/home/ec2-user
+     - name: Copy the file from AnsibleN1 to Appserver
+       copy: src=/home/ec2-user/mvn-hello-world.war dest=/home/ec2-user
        when: inventory_hostname == 'Appserver'
