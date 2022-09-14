@@ -4,8 +4,8 @@
      - name: Fetch the file from the Jenkins Master to master
        run_once: yes
        fetch: src=/home/ec2-user/mvn-hello-world.war dest=/home/ec2-user/ flat=yes
-       when: "{{ inventory_hostname == 'Jenkins Master' }}"
+       when: inventory_hostname == 'Jenkins Master' 
 
      - name: Copy the file from master to Appserver
        copy: src=/home/ec2-user/mvn-hello-world.war dest=/home/ec2-user
-       when: "{{ inventory_hostname == 'Appserver' }}"
+       when: inventory_hostname == 'Appserver'
