@@ -1,5 +1,5 @@
 ---
- - hosts: app
+ - hosts: web
    tasks:
      - name: Fetch the file from the Jenkins Master to master
        run_once: yes
