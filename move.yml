@@ -3,9 +3,9 @@
    tasks:
      - name: Fetch the file from the Jenkins Master
        run_once: yes
-       fetch: src=/home/ec2-user/mvn-hello-world.war dest=/home/ec2-user/ flat=yes
+       fetch: src=/home/ec2-user/mvn-hello-world.war dest=buffer/ flat=yes
        when: inventory_hostname == 'Jenkins Master' 
 
      - name: Copy the file from Jenkins Master to Appserver
-       copy: src=/home/ec2-user/mvn-hello-world.war dest=/home/ec2-user
+       copy: src=buffer/mvn-hello-world.war dest=/home/ec2-user
        when: inventory_hostname == 'Appserver'
